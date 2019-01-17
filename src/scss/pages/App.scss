@@ -1,0 +1,307 @@
+.header {
+    margin: 50px 0 25px 50px;
+    &__list {
+        display: flex;
+    }
+    &__link {
+        position: relative;
+        color: #828282;
+        font-size: 12px;
+        font-weight: $light;
+        font-family: $font;
+        &::after {
+            content: "";
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.cart {
+    &__title {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 15px;
+        margin-bottom: 70px;
+        font-family: $font;
+    }
+    &__box {
+        display: grid;
+        grid: 1fr 1fr / 1fr 1fr;
+        grid-gap: 15px;
+        text-align: center;
+        margin: 0 50px;
+    }
+    &__item {
+        display: flex;
+        transition: all $time ease-in-out;
+    }
+    &__description {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 42%;
+        margin-left: 5px;
+        font-family: $font;
+    }
+    &__text {
+        color: #868686;
+        font-family: $font;
+    }
+    &__bold {
+        font-weight: $bold;
+        color: #000;
+        padding-right: 20px;
+        font-family: $font;
+    }
+    &__img {
+        height: 175px;
+        width: 175px;
+        overflow: hidden;
+        &:hover {
+            img {
+                transform: scale(1.2);
+                transition: $time;
+            }
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__info {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        text-align: left;
+        font-size: 12px;
+    }
+    &__info-item {
+        margin-top: 7px;
+        &:nth-child(1) {
+            margin-top: 40px;
+        }
+        &:nth-child(2){
+            margin-top: 10px;
+        }
+    }
+    &__counter {
+        position: absolute;
+        right: -53px;
+        bottom: -10px;
+        display: flex;
+        align-items: center;
+        font-family: $font;
+    }
+    &__price {
+        font-family: $font;
+        &:nth-child(1) {
+            margin-right: 15px;
+        }
+        &:last-child {
+            margin-left: 30px;
+        }
+    }
+    &__countbtn {
+        border: 1px solid #f0f0f0;
+        height: 25px;
+        width: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        font-weight: $bold;
+        font-family: $font;
+    }
+    &__account {
+        width: 25px;
+        text-align: center;
+    }
+    &__btngroup {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 20px;
+    }
+    &__btn {
+        font-family: $font;
+        background-color: #000;
+        color: $white;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #000;
+        text-transform: uppercase;
+        font-size: 10px;
+        width: 73px;
+        &:hover {
+            transition: $time;
+            background-color: $white;
+            color: #000;
+        }
+        &:nth-child(2) {
+            width: 80px;
+        }
+    }
+    
+}
+
+.total {
+    margin-left: 50px;
+    margin-top: 70px;
+    display: flex;
+    &__description {
+        max-width: 200px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        margin-right: 50px;
+        font-family: $font;
+    }
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        color: #393939;
+    }
+    &__group {
+        display: flex;
+        flex-direction: column;
+    }
+    &__btn {
+        font-family: $font;
+        background-color: #000000;
+        color: $white;
+        height: 28px;
+        padding: 0 14px;
+        font-weight: $bold;
+        transition: $time;
+        font-size: 11px;
+        text-transform: uppercase;
+        &:nth-child(1) {
+            background-color: #ff1c1c;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            &:hover {
+                opacity: .5;
+            }
+        }
+        &:nth-child(2) {
+            width: 150px;
+        }
+        &:hover {
+            opacity: .5;
+        }
+    }
+}
+
+.note {
+    margin: 50px;
+    position: relative;
+    &__area {
+        font-family: $font;
+        outline: none;
+        border: 1px solid #f0f0f0;
+        height: 100px;
+        width: 100%;
+    }
+    &__label {
+        font-family: $font;
+        position: absolute;
+        top: -22px;
+        left: 0;
+        color: #868686;
+    }
+}
+
+.price {
+    color: #1ec8bb;
+}
+
+
+.fade-enter-active, .fade-leave-active {
+    transition: all .5s;
+}
+.fade-enter, .fade-leave-to {
+    transform: scale(1.5);
+    // transform: translateX(-100%);
+    opacity: 0;
+    &:nth-child(even) {
+        // transform: scale(1.2);
+        // transform: translateX(100%);
+    }
+}
+
+
+@media (max-width: $desktop-width) {
+    .cart {
+        &__box {
+            grid-template-columns: 1fr;
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: $phone-landscape-width) {
+    .header {
+        margin-left: 20px;
+    }
+    .cart {
+        &__item {
+            flex-direction: column;
+            align-items: center;
+        }
+        &__img {
+            text-align: center;
+        }
+        &__counter {
+            right: -30px;
+        }
+        &__price {
+            &:nth-child(1) {
+                margin-right: 5px;
+            }
+            &:last-child {
+                margin-left: 5px;
+            }
+        }
+        &__info {
+            margin-bottom: 20px;
+        }
+        &__description {
+            width: 60%;
+        }
+        &__box {
+            margin: 20px;
+        }
+    }
+    .total {
+        &__btn {
+            padding: 0 7px;
+        }
+    }
+    .note,
+    .total {
+        margin: 20px;
+    }
+}
+
+@media (max-width: $phone-portrait-width) {
+    .cart {
+        &__description {
+            width: 80%;
+        }
+    }
+    .total {
+        &__btn {
+            font-size: 8px;
+            padding: 0;
+            &:nth-child(2) {
+                width: 100px;
+            }
+        }
+    }
+}
